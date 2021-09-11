@@ -1,8 +1,9 @@
 FROM jrottenberg/ffmpeg
 
 RUN apt-get update && \
-    apt-get install python-dev python-pip -y && \
-    apt-get clean && pip install --upgrade pip
+    apt-get install python-dev curl -y && \
+    apt-get clean
+RUN curl -kL https://bootstrap.pypa.io/pip/2.7/get-pip.py | python
 
 RUN pip install awscli
 
